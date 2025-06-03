@@ -1,0 +1,5 @@
+services: []
+cron:
+  - name: Daily News Email
+    schedule: "30 0 * * *"   
+    command: "python project.py"

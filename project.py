@@ -147,7 +147,7 @@ def main():
     # args = parser.parse_args()
 
     # if args.email:
-    emails = ("harrybhai504@gmail.com", "harry.bhai.12.2000@gmail.com")
+    emails = ("harrybhai504@gmail.com", "harry.bhai.12.2000@gmail.com", "rajeshpatilcoolboy@gmail.com")
     p.share_email(emails)
 
 

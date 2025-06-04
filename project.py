@@ -110,7 +110,7 @@ class PyNewsRead:
 
     def share_email(self, email: tuple):
         my_mail = "irfan.md2302@gmail.com"
-        my_pass = "afuo fzkq emey voys"
+        my_pass = os.environ["EMAIL_PASSWORD"]
 
         try :
             if validators.email(email[0]) :

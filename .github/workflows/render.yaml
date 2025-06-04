@@ -25,5 +25,6 @@ jobs:
         env:
           EMAIL_PASSWORD: ${{ secrets.EMAIL_PASSWORD }}
           API_KEY: ${{ secrets.API_KEY }}
+          MY_MAIL: ${{ secrets.MY_MAIL }}
           
         run: python project.py

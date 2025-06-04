@@ -57,6 +57,7 @@ class PyNewsPdf:
                     if response.status_code == 200:
                         img_data = BytesIO(response.content)
                         img = Image(img_data, width=150, height=100)
+                        time.sleep(1)
                 except:
                     pass
 
@@ -91,16 +92,16 @@ class PyNewsPdf:
 class PyNewsRead:
 
     def __init__(self):
-        self.apikey = '3ff2fa9d6e427b9005efc7f10edf8182'
+        self.apikey = os.environ["API_KEY"]
         self.pdfwrite = PyNewsPdf()
 
     def get_headlines(self):
         categories = ["world", "nation", "business", "technology",
-                      "entertainment", "sports", "science", "health"]
+                      "entertainment", "sports", "science", "health", "general"]
 
         for category in categories:
             response = requests.get(
-                f"https://gnews.io/api/v4/top-headlines?category={category}&lang=en&max=5&apikey={self.apikey}")
+                f"https://gnews.io/api/v4/top-headlines?category={category}&lang=en&max=10&apikey={self.apikey}")
             news = json.loads(response.text)
 
             self.pdfwrite.add_news(news["articles"], category)
@@ -109,11 +110,10 @@ class PyNewsRead:
         self.pdfwrite.save()
 
     def share_email(self, email: tuple):
-        my_mail = "irfan.md2302@gmail.com"
+        my_mail = os.environ["MY_MAIL"]
         my_pass = os.environ["EMAIL_PASSWORD"]
 
         try :
-            if validators.email(email[0]) :
                 msg = EmailMessage()
                 msg['From'] = my_mail
                 msg['To'] = email
@@ -125,7 +125,8 @@ Best regards,\n
 Newspaper Team
 """
                 msg.set_content(body)
-                pdf_file = "NewsPaper.pdf"
+                pdf_file = f"NewsPaper_{date.today()}.pdf"
+            
                 with open(pdf_file, 'rb') as f:
                     file_data = f.read()
                     msg.add_attachment(file_data, maintype='application', subtype='pdf', filename=pdf_file)
@@ -134,7 +135,7 @@ Newspaper Team
                     smtp.login(my_mail, my_pass)
                     smtp.send_message(msg)
                     print("Email sent successfully!")
-                    return
+    
         except:
             sys.exit("An unexpected error occurred.")
 
@@ -142,7 +143,7 @@ def main():
     p = PyNewsRead()
     p.get_headlines()
     
-    emails = ("harrybhai504@gmail.com", "harry.bhai.12.2000@gmail.com")
+    emails = tuple(os.environ["RECIPIENTS"].split(","))
     p.share_email(emails)
 
 

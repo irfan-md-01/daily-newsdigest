@@ -4,7 +4,7 @@ from reportlab.lib.enums import TA_CENTER
 from reportlab.lib.pagesizes import A4
 from reportlab.lib import colors
 from reportlab.platypus.flowables import HRFlowable
-from datetime import datetime
+from datetime import datetime, date
 import requests
 import json
 from io import BytesIO
@@ -20,7 +20,7 @@ import sys
 class PyNewsPdf:
 
     def __init__(self):
-        self.doc = SimpleDocTemplate("NewsPaper.pdf", pagesize=A4)
+        self.doc = SimpleDocTemplate(f"NewsPaper_{date.today()}.pdf", pagesize=A4)
         self.styles = getSampleStyleSheet()
         self.elements = []
 
@@ -141,12 +141,7 @@ Newspaper Team
 def main():
     p = PyNewsRead()
     p.get_headlines()
-    # parser = ArgumentParser(
-    #     description="get the News Paper and share it via email ")
-    # parser.add_argument('-e', '--email', type=str, help='Your email address ')
-    # args = parser.parse_args()
-
-    # if args.email:
+    
     emails = ("harrybhai504@gmail.com", "harry.bhai.12.2000@gmail.com")
     p.share_email(emails)
 

@@ -1,3 +1,5 @@
 reportlab
 requests
 validator-collection
+gspread
+oauth2client

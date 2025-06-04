@@ -26,5 +26,6 @@ jobs:
           EMAIL_PASSWORD: ${{ secrets.EMAIL_PASSWORD }}
           API_KEY: ${{ secrets.API_KEY }}
           MY_MAIL: ${{ secrets.MY_MAIL }}
+          RECIPIENTS: ${{ secrets.RECIPIENTS }}
           
         run: python project.py

@@ -15,7 +15,7 @@ import os
 import smtplib
 from validator_collection import validators
 import sys
-
+from load_subscribers import get_subscriber
 
 class PyNewsPdf:
 
@@ -101,7 +101,7 @@ class PyNewsRead:
 
         for category in categories:
             response = requests.get(
-                f"https://gnews.io/api/v4/top-headlines?category={category}&lang=en&max=5&apikey={self.apikey}")
+                f"https://gnews.io/api/v4/top-headlines?category={category}&lang=en&max=1&apikey={self.apikey}")
             news = json.loads(response.text)
 
             self.pdfwrite.add_news(news["articles"], category)
@@ -143,7 +143,7 @@ def main():
     p = PyNewsRead()
     p.get_headlines()
     
-    emails = tuple(os.environ["RECIPIENTS"].split(","))
+    emails = get_subscriber()
     p.share_email(emails)
 
 

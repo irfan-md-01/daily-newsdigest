@@ -13,5 +13,5 @@ def get_subscriber():
 
     sheet = client.open("Daily-NewsDigest Subscribers").sheet1
 
-    emails = sheet.col_values(1)[1:]
+    emails = sheet.col_values(2)[1:]
     return tuple(set(emails))

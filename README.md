@@ -1,5 +1,6 @@
-# 📰 Daily-NewsDigest – Automated Python Newspaper Generator
-
+# 📰 Daily-NewsDigest – Automated Python Newspaper Distribution system
+#### Video Demo:  https://youtu.be/gsgqBy9fEwo
+#### Description:
 Generate a personalized daily newspaper in PDF format, fetch the latest headlines using APIs, and email it to your subscribers — all fully automated using GitHub Actions and Google Sheets.
 
 ![Python](https://img.shields.io/badge/Built%20With-Python-blue)

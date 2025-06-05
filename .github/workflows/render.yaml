@@ -2,7 +2,7 @@ name: Daily News Digest
 
 on:
   schedule:
-    - cron: '45 00 * * *'  
+    - cron: '30 02 * * *'  
   workflow_dispatch:     
 
 jobs:

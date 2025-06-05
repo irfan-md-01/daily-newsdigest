@@ -1,7 +1,7 @@
 # 📰 Daily-NewsDigest – Automated Python Newspaper Distribution system
 #### Video Demo:  https://youtu.be/gsgqBy9fEwo
 #### Description:
-Generate a personalized daily newspaper in PDF format, fetch the latest headlines using APIs, and email it to your subscribers — all fully automated using GitHub Actions and Google Sheets.
+I developed an automated newspaper generation system in Python that fetches real-time news articles using a public API, formats them into a well-structured PDF using ReportLab, and delivers the final document via email to a list of subscribers. The entire process is fully automated using GitHub Actions, enabling daily delivery without any manual intervention. Subscriber emails are managed through a Google Form connected to a Google Sheet, which the script accesses securely via the Google Sheets API. Credentials and API keys are safely handled using GitHub Secrets. 
 
 ![Python](https://img.shields.io/badge/Built%20With-Python-blue)
 ![Status](https://img.shields.io/badge/Automation-GitHub%20Actions-success)

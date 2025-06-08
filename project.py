@@ -107,8 +107,7 @@ class PyNewsRead:
             news = json.loads(response.text)
 
             self.pdfwrite.add_news(news["articles"], category)
-            if category=="business":
-                break
+
             sleep(2)
 
         self.pdfwrite.save()

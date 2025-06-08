@@ -16,6 +16,7 @@ import smtplib
 from validator_collection import validators
 import sys
 from load_subscribers import get_subscriber
+import traceback
 
 class PyNewsPdf:
 
@@ -137,6 +138,7 @@ Newspaper Team
                     print("Email sent successfully!")
     
         except:
+            traceback.print_exc()
             sys.exit("An unexpected error occurred.")
 
 def main():
@@ -148,4 +150,8 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
+    try :
+        main()
+    except:
+        traceback.print_exc()
+        sys.exit()

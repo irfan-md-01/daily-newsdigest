@@ -139,7 +139,7 @@ Newspaper Team
     
         except:
             traceback.print_exc()
-            sys.exit("An unexpected error occurred.")
+            sys.exit("error occured in email function")
 
 def main():
     p = PyNewsRead()

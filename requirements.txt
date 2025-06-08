@@ -3,3 +3,4 @@ requests
 validator-collection
 gspread
 oauth2client
+python-dotenv

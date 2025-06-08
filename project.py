@@ -148,8 +148,8 @@ def main():
     p = PyNewsRead()
     p.get_headlines()
     
-    # emails = get_subscriber()
-    emails = os.getenv("RECIPIENTS")
+    emails = get_subscriber()
+    # emails = os.getenv("RECIPIENTS")
     p.share_email(emails)
 
 

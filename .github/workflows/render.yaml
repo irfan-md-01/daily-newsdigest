@@ -34,6 +34,6 @@ jobs:
           MY_MAIL: ${{ secrets.MY_MAIL }}
           RECIPIENTS: ${{ secrets.RECIPIENTS }}
           
-        run: 
+        run: |
           set -x
           python project.py

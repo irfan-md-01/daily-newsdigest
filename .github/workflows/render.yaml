@@ -25,7 +25,9 @@ jobs:
         run: echo '${{ secrets.GSHEETS_CREDENTIALS }}' > credentials.json
 
       - name: Debugging
-        run: cat credentials.json || echo "File not Found"
+        run: |
+          echo "printing credentials.json me"
+          cat credentials.json || echo "File not Found"
 
       - name: Run Daily News Digest
         env:

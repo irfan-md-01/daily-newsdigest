@@ -94,11 +94,11 @@ class PyNewsPdf:
 class PyNewsRead:
 
     def __init__(self):
-        self.apikey = os.environ["API_KEY"]
+        self.apikey = os.getenv("API_KEY")
         self.pdfwrite = PyNewsPdf()
 
     def get_headlines(self):
-        categories = ["world", "nation", "business", "technology",
+        categories = ["technology", "nation", "business", "world",
                       "entertainment", "sports", "science", "health", "general"]
 
         for category in categories:
@@ -107,13 +107,15 @@ class PyNewsRead:
             news = json.loads(response.text)
 
             self.pdfwrite.add_news(news["articles"], category)
+            if category=="business":
+                break
             sleep(2)
 
         self.pdfwrite.save()
 
     def share_email(self, email: tuple):
-        my_mail = os.environ["MY_MAIL"]
-        my_pass = os.environ["EMAIL_PASSWORD"]
+        my_mail = os.getenv("MY_MAIL")
+        my_pass = os.getenv("EMAIL_PASSWORD")
 
         try :
                 msg = EmailMessage()
@@ -146,7 +148,8 @@ def main():
     p = PyNewsRead()
     p.get_headlines()
     
-    emails = get_subscriber()
+    # emails = get_subscriber()
+    emails = os.getenv("RECIPIENTS")
     p.share_email(emails)
 
 

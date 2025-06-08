@@ -17,6 +17,7 @@ from validator_collection import validators
 import sys
 from load_subscribers import get_subscriber
 import traceback
+from dotenv import load_dotenv
 
 class PyNewsPdf:
 
@@ -151,6 +152,7 @@ def main():
 
 if __name__ == "__main__":
     try :
+        load_dotenv()
         main()
     except:
         traceback.print_exc()

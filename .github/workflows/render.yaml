@@ -24,6 +24,9 @@ jobs:
       - name: Recreate credentials.json from secret
         run: echo '${{ secrets.GSHEETS_CREDENTIALS }}' > credentials.json
 
+      - name: Debugging
+        run: cat credentials.json || echo "File not Found"
+
       - name: Run Daily News Digest
         env:
           EMAIL_PASSWORD: ${{ secrets.EMAIL_PASSWORD }}
@@ -31,4 +34,6 @@ jobs:
           MY_MAIL: ${{ secrets.MY_MAIL }}
           RECIPIENTS: ${{ secrets.RECIPIENTS }}
           
-        run: python project.py
+        run: 
+          set -x
+          python project.py

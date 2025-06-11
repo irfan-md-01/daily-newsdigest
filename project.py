@@ -120,7 +120,7 @@ class PyNewsRead:
                 msg = EmailMessage()
                 msg['From'] = my_mail
                 msg['To'] = email
-                msg['Subject'] = f"Your Weekly Newspaper – {datetime.now().strftime('%B %d, %Y')}"
+                msg['Subject'] = f"Your Daily Newspaper – {datetime.now().strftime('%B %d, %Y')}"
                 body = f"""Dear Reader,\n
 Please find attached your copy of the newspaper for {datetime.now().strftime('%B %d, %Y')}.\n
 We hope you enjoy reading it. If you have any feedback or suggestions, feel free to reach out to us.\n
